@@ -6,36 +6,88 @@ The system simulates a UK Motor Insurance claim triage system with modular AI ag
 
 ---
 
+
 ## 🧠 Architecture Overview
 
 The system follows a planner-based orchestration model:
 
-                  ┌─────────────┐
-                  │    User     │
-                  └──────┬──────┘
-                         │
-                         ▼
-                  ┌─────────────┐
-                  │   Planner   │
-                  │    Agent    │
-                  └──────┬──────┘
-                         │
-          ┌──────────────┴──────────────┐
-          │                             │
-          ▼                             ▼
-   ┌─────────────┐              ┌─────────────┐
-   │ Policy Agent│              │ Risk Agent  │
-   │    (RAG)    │              │             │
-   └──────┬──────┘              └──────┬──────┘
-          │                             │
-          └──────────────┬──────────────┘
-                         │
-                         ▼
-                  ┌─────────────┐
-                  │  Decision   │
-                  │    Agent    │
-                  └─────────────┘
+```mermaid
+flowchart TD
+    User --> Planner["Planner Agent"]
+    Planner --> Policy["Policy Agent (RAG)"]
+    Planner --> Risk["Risk Agent"]
+    Policy --> Decision["Decision Agent"]
+    Risk --> Decision
 
+
+---
+
+# 🎯 Why This Is Better
+
+- Perfect alignment
+- Clean rendering
+- Looks modern
+- Recruiter-friendly
+- No spacing issues
+- Works natively on GitHub
+
+---
+
+# 🚀 If You Want Slightly More Detailed Version
+
+Use this:
+
+```markdown
+## 🧠 Architecture Overview
+
+```mermaid
+flowchart TD
+    User["User Input"] --> Planner["Planner Agent"]
+
+    Planner --> Policy["Policy Agent<br>(Retrieves Context from FAISS)"]
+    Planner --> Risk["Risk Assessment Agent"]
+
+    Policy --> Decision["Decision Agent"]
+    Risk --> Decision
+
+    Decision --> Output["Final Decision:<br>APPROVE / REJECT / ESCALATE"]
+
+This clearly shows:
+- RAG integration
+- Agent flow
+- Final outcome
+
+---
+
+# 📌 Important
+
+Make sure:
+
+- You use triple backticks before and after
+- You write `mermaid` right after the first backticks
+- No extra spaces before the backticks
+
+---
+
+# 🧠 Architect Recommendation
+
+For AI / Cloud projects:
+
+Always prefer Mermaid over ASCII.
+
+It signals:
+- Clean documentation skills
+- Modern engineering practices
+- System design clarity
+
+---
+
+After updating:
+
+```bash
+git add README.md
+git commit -m "Replaced ASCII diagram with Mermaid architecture diagram"
+git push
 
 ---
 
