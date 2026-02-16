@@ -4,92 +4,23 @@ This project demonstrates a **planner-driven multi-agent architecture** integrat
 
 The system simulates a UK Motor Insurance claim triage system with modular AI agents.
 
----
-
 
 ## 🧠 Architecture Overview
 
 The system follows a planner-based orchestration model:
 
-```mermaid
 flowchart TD
-    User --> Planner["Planner Agent"]
-    Planner --> Policy["Policy Agent (RAG)"]
-    Planner --> Risk["Risk Agent"]
-    Policy --> Decision["Decision Agent"]
-    Risk --> Decision
+    A["User Input"] --> B["Planner Agent"]
+
+    B --> C["Policy Agent<br/>(Retrieves Context from FAISS)"]
+    B --> D["Risk Agent"]
+
+    C --> E["Decision Agent"]
+    D --> E
+
+    E --> F["Final Output:<br/>APPROVE / REJECT / ESCALATE"]
 
 
----
-
-# 🎯 Why This Is Better
-
-- Perfect alignment
-- Clean rendering
-- Looks modern
-- Recruiter-friendly
-- No spacing issues
-- Works natively on GitHub
-
----
-
-# 🚀 If You Want Slightly More Detailed Version
-
-Use this:
-
-```markdown
-## 🧠 Architecture Overview
-
-```mermaid
-flowchart TD
-    User["User Input"] --> Planner["Planner Agent"]
-
-    Planner --> Policy["Policy Agent<br>(Retrieves Context from FAISS)"]
-    Planner --> Risk["Risk Assessment Agent"]
-
-    Policy --> Decision["Decision Agent"]
-    Risk --> Decision
-
-    Decision --> Output["Final Decision:<br>APPROVE / REJECT / ESCALATE"]
-
-This clearly shows:
-- RAG integration
-- Agent flow
-- Final outcome
-
----
-
-# 📌 Important
-
-Make sure:
-
-- You use triple backticks before and after
-- You write `mermaid` right after the first backticks
-- No extra spaces before the backticks
-
----
-
-# 🧠 Architect Recommendation
-
-For AI / Cloud projects:
-
-Always prefer Mermaid over ASCII.
-
-It signals:
-- Clean documentation skills
-- Modern engineering practices
-- System design clarity
-
----
-
-After updating:
-
-```bash
-git add README.md
-git commit -m "Replaced ASCII diagram with Mermaid architecture diagram"
-git push
-
----
 
 ## 🔎 How RAG Works
 
@@ -99,7 +30,7 @@ git push
 4. Retrieved context is injected into the Policy Agent prompt
 5. LLM generates a context-aware validation decision
 
----
+
 
 ## ⚙️ Tech Stack (POC Version)
 
@@ -113,7 +44,7 @@ git push
 
 All running locally on an 8GB laptop.
 
----
+
 
 ## 🚀 Features
 
@@ -124,7 +55,7 @@ All running locally on an 8GB laptop.
 - Token control and response constraints
 - Fully open-source stack
 
----
+
 
 ## ▶️ How to Run
 
@@ -140,12 +71,12 @@ ollama pull phi3:mini
 python -m venv venv
 .\venv\Scripts\Activate
 
----
+
 
 ### 3️⃣ Install Dependencies
 pip install -r requirements.txt
 
----
+
 
 ### 4️⃣ Run Application
 python main.py
@@ -157,7 +88,6 @@ Accident today.
 Claim amount £15000.
 
 
----
 
 ## 🏗 Enterprise Upgrade Path
 
@@ -171,7 +101,7 @@ To productionize this system:
 - Add authentication (OAuth / OIDC)
 - Add monitoring (Prometheus / CloudWatch)
 
----
+
 
 ## 📌 Purpose
 
@@ -184,7 +114,6 @@ This project demonstrates how:
 
 can form the foundation of enterprise-grade AI systems in regulated industries like insurance.
 
----
 
 ## 📂 Repository Structure
 
@@ -199,7 +128,6 @@ motor-insurance-multiagent-rag/
 └── README.md
 
 
----
 
 ## 📜 License
 
